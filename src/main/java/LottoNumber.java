@@ -11,10 +11,6 @@ public class LottoNumber implements Comparable<LottoNumber> {
         this.number = number;
     }
 
-    public LottoNumber() {
-        this(NumberUtil.generateRandomNumber());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
