@@ -27,8 +27,8 @@ java enum을 적용해 프로그래밍을 구현한다.
 
 -[ ] Model : Lotto, LottoNumber, LottoNumbers
     -[x] 로또 번호
-    -[ ] 로또
-        -[ ] 당첨 결과 계산 로직 
+    -[x] 로또
+        -[x] 당첨 결과 계산 로직 
         -[x] 로또 생성
     -[ ] 로또 매니저
         -[ ] 당첨금 계산

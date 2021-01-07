@@ -8,19 +8,22 @@ public class LottoNumbers {
         Collections.sort(list);
 
         for (int i = 0; i < list.size(); i++) {
-            lottoNumbers.add(new LottoNumber(list.get(i)));
+            lottoNumbers.add(LottoNumber.getInstance(list.get(i)));
         }
     }
 
-    public int compare(LottoNumbers lottoNumbers) {
-        Set<Integer> set = new HashSet<>();
+    public int countSameLottoNumber(LottoNumbers lottoNumbers) {
+        Set<LottoNumber> set = new HashSet<>();
 
         for (int i = 0; i < 6; i++) {
-            set.add(this.lottoNumbers.get(i).getNumber());
-            set.add(lottoNumbers.lottoNumbers.get(i).getNumber());
+            set.add(this.lottoNumbers.get(i));
+            set.add(lottoNumbers.lottoNumbers.get(i));
         }
 
         return 12 - set.size();
     }
 
+    public boolean contains(int bonusNumber) {
+        return lottoNumbers.contains(LottoNumber.getInstance(bonusNumber));
+    }
 }
