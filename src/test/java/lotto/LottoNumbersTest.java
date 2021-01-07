@@ -1,3 +1,6 @@
+package lotto;
+
+import lotto.LottoNumbers;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -26,8 +29,13 @@ public class LottoNumbersTest {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
         LottoNumbers lottoNumbers = new LottoNumbers(numbers);
 
-        assertTrue(lottoNumbers.contains(1));
-        assertTrue(lottoNumbers.contains(6));
-        assertFalse(lottoNumbers.contains(7));
+        LottoNumber lottoNumber1 = LottoNumber.getInstance(1);
+        LottoNumber lottoNumber2 = LottoNumber.getInstance(6);
+        LottoNumber lottoNumber3 = LottoNumber.getInstance(7);
+
+        assertTrue(lottoNumbers.contains(lottoNumber1));
+        assertTrue(lottoNumbers.contains(lottoNumber2));
+        assertFalse(lottoNumbers.contains(lottoNumber3));
+
     }
 }

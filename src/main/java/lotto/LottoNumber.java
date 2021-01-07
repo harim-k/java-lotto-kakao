@@ -1,3 +1,5 @@
+package lotto;
+
 public class LottoNumber implements Comparable<LottoNumber> {
     private static final int MAX_LOTTO_NUMBER = 45;
     private static final int MIN_LOTTO_NUMBER = 1;
@@ -17,13 +19,10 @@ public class LottoNumber implements Comparable<LottoNumber> {
         this.number = number;
     }
 
-    /*
+
     public int getNumber() {
         return number;
     }
-
-    public int printNumber() { IOUtil.print(number); }
-     */
 
     @Override
     public int compareTo(LottoNumber o) {

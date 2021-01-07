@@ -1,4 +1,7 @@
+package utils;
+
 import org.junit.jupiter.api.Test;
+import utils.NumberUtil;
 
 import java.util.HashSet;
 import java.util.List;

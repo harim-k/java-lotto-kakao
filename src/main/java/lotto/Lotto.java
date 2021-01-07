@@ -1,4 +1,6 @@
-import java.util.List;
+package lotto;
+
+import utils.NumberUtil;
 
 public class Lotto {
 
@@ -16,12 +18,14 @@ public class Lotto {
         return new LottoNumbers(NumberUtil.generateLottoNumbers());
     }
 
-    public LottoResult getResult(List<Integer> winningNumbers, int bonusNumber){
-        LottoNumbers winningLottoNumbers = new LottoNumbers(winningNumbers);
-
+    public LottoResult getResult(LottoNumbers winningLottoNumbers, LottoNumber bonusNumber){
         return new LottoResult(
                 lottoNumbers.countSameLottoNumber(winningLottoNumbers),
                 lottoNumbers.contains(bonusNumber)
         );
+    }
+
+    public String getNumbers() {
+        return lottoNumbers.getNumbers();
     }
 }

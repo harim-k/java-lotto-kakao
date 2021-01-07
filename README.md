@@ -25,57 +25,28 @@ java enum을 적용해 프로그래밍을 구현한다.
 
 ## 기능 요구사항
 
--[ ] Model : Lotto, LottoNumber, LottoNumbers
+-[x] Model : lotto.Lotto, lotto.LottoNumber, lotto.LottoNumbers
     -[x] 로또 번호
     -[x] 로또
         -[x] 당첨 결과 계산 로직 
         -[x] 로또 생성
-    -[ ] 로또 매니저
-        -[ ] 당첨금 계산
-        -[ ] 수익률 계산
+    -[x] 로또 매니저
+        -[x] 당첨금 계산
+        -[x] 수익률 계산
 
 -[ ] View
-    -[ ] 금액 입력
-    -[ ] 당첨 번호 입력
+    -[x] 금액 입력
+    -[x] 당첨 번호 입력
      
-    -[ ] 구매한 로또 복권 번호 출력
+    -[x] 구매한 로또 복권 번호 출력
     -[ ] 당첨 통계 출력
      
--[ ] Controller
-    -[ ] View, Model 호출
+-[x] Controller
+    -[x] View, Model 호출
 
 -[x] Utils
     -[x] 로또 번호 생성
     -[x] 로또 번호 정렬
-    
-
-# joy
-
--[ ] 금액 입력
--[ ] 당첨 번호 입력
--[ ] 구매한 로또 번호 출력
--[ ] 당첨 통계 출력
- 
--[ ] 로또 번호 생성
--[ ] 로또 번호 정렬
- 
--[ ] 당첨금 계산
--[ ] 수익률 계산
--[ ] 
-
-
-## jon
-* LottoNumber 클래스 구현
-* LottoNumber 클래스 범위 체크 구현
-* LottoNumber 클래스 equal 구현
-* Ball 클래스 구현
-* Ball 클래스 equal 구현
-* 일급 콜렉션 Balls 구현
-* 난수 생성 로직 구현
-* 일치하는 Ball 갯수 구하는 로직 구현
-* 수익률 계산 로직 구현
-* 입출력 구현
-
 
 
 
