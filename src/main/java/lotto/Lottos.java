@@ -6,11 +6,9 @@ import java.util.stream.Collectors;
 
 public class Lottos {
 
-    private final List<Lotto> lottos;
+    private final List<Lotto> lottos = new ArrayList<>();
 
     public Lottos(int n) {
-        lottos = new ArrayList<>();
-
         for (int i = 0; i < n; i++) {
             lottos.add(new Lotto());
         }
@@ -20,9 +18,10 @@ public class Lottos {
         return lottos;
     }
 
-    public List<LottoResult> getLottoResults(LottoNumbers winningNumbers, LottoNumber bonusNumber) {
+    public List<LottoResult> getLottoResults(Lotto winningLotto, LottoNumber bonusNumber) {
         return lottos.stream()
-                .map(lotto -> lotto.getResult(winningNumbers, bonusNumber))
+                .map(lotto -> lotto.getResult(winningLotto, bonusNumber))
+                .filter(lottoResult -> lottoResult != null)
                 .collect(Collectors.toList());
     }
 }

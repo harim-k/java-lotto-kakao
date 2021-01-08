@@ -1,8 +1,8 @@
 package view;
 
+import lotto.Lotto;
 import lotto.LottoManager;
 import lotto.LottoNumber;
-import lotto.LottoNumbers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,14 +20,14 @@ public class InputView {
         return money;
     }
 
-    public static LottoNumbers readWinningNumbers() {
+    public static Lotto readWinningLotto() {
         System.out.println("지난 주 당첨 번호를 입력해 주세요.");
         String input = scanner.nextLine();
         List<Integer> winningNumbers = Arrays.stream(input.split(", "))
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
 
-        return new LottoNumbers(winningNumbers);
+        return new Lotto(winningNumbers);
     }
 
     public static LottoNumber readBonusNumber() {

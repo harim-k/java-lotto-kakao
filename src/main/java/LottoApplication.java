@@ -1,25 +1,39 @@
-import lotto.*;
-import view.OutputView;
+import lotto.LottoManager;
 import view.InputView;
+import view.OutputView;
 
 public class LottoApplication {
-    public static void main(String []arg){
+    private static LottoManager lottoManager;
 
-        LottoManager lottoManager = new LottoManager();
-
-        int money = InputView.readMoney();
-        lottoManager.buyLottos(money);
-        OutputView.printLottos(lottoManager.getLottos());
-
-        LottoNumbers winningNumbers = InputView.readWinningNumbers();
-        LottoNumber bonusNumber = InputView.readBonusNumber();
-        lottoManager.getLottoResults(winningNumbers, bonusNumber);
-
-
-        long earningRates = lottoManager.getEarningRate();
-
-        System.out.println("수익률 : " + earningRates + "%");
+    public static void main(String[] arg) {
+        initLottoManager();
+        buyLottos();
+        printLottos();
+        matchWithWinningLotto();
+        printResults();
     }
 
+    private static void initLottoManager() {
+        lottoManager = new LottoManager();
+    }
 
+    private static void buyLottos() {
+        lottoManager.buyLottos(InputView.readMoney());
+    }
+
+    private static void printLottos() {
+        OutputView.printLottos(lottoManager.getLottos());
+    }
+
+    private static void matchWithWinningLotto() {
+        lottoManager.matchWithWinningLotto(
+                InputView.readWinningLotto(),
+                InputView.readBonusNumber()
+        );
+    }
+
+    private static void printResults() {
+        OutputView.printStatistics(lottoManager.countRanks());
+        OutputView.printEarningRate(lottoManager.getEarningRate());
+    }
 }

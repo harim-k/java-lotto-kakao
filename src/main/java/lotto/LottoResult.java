@@ -1,50 +1,48 @@
 package lotto;
 
-public class LottoResult {
-    private final int count;
+import java.util.List;
+
+public enum LottoResult {
+    FIRST(6, false, 2000000000),
+    SECOND(5, true, 30000000),
+    THIRD(5, false, 1500000),
+    FOURTH(4, false, 50000),
+    FIFTH(3, false, 5000);
+
+    private final int matchCount;
     private final boolean bonusMatch;
+    private final int reward;
 
-    public LottoResult(int count, boolean bonusMatch) {
-        this.count = count;
+    public static LottoResult init(int count, boolean bonusMatch) {
+        if (count == 3) return FIFTH;
+        if (count == 4) return FOURTH;
+        if (count == 5 && !bonusMatch) return THIRD;
+        if (count == 5 && bonusMatch) return SECOND;
+        if (count == 6) return FIRST;
+        return null;
+    }
+
+    LottoResult(int matchCount, boolean bonusMatch, int reward) {
+        this.matchCount = matchCount;
         this.bonusMatch = bonusMatch;
+        this.reward = reward;
     }
 
-    public int getCount() {
-        return count;
+    public int getReward() {
+        return reward;
     }
 
-    public boolean isBonusMatch() {
-        return bonusMatch;
-    }
-
-    /*
-    public LottoWinnings getMoney() {
-        if(count == 3) return LottoWinnings.FIFTH;
-        if(count == 4) return LottoWinnings.FOURTH;
-        if(count == 5 && !bonusMatch) return LottoWinnings.THIRD;
-        if(count == 5 && bonusMatch) return LottoWinnings.SECOND;
-        else return LottoWinnings.FIRST;
-    }
-
-
-    enum LottoWinnings {
-        FIRST(6, false), SECOND(5, true), THIRD(5, false), FOURTH(4, false), FIFTH(3, false);
-
-        private int matchCount;
-        private int winnings;
-
-        private LottoWinnings(int count, boolean bonusMatch){
-            this.winnings = winnings;
-            this.matchCount = matchCount;
+    public int getMyCount(List<LottoResult> results) {
+        int cnt = 0;
+        for (LottoResult result : results) {
+            if (result == this) cnt++;
         }
+        return cnt;
     }
 
-    3개 일치 (5000원)- 1개
-    4개 일치 (50000원)- 0개
-    5개 일치 (1500000원)- 0개
-    5개 일치, 보너스 볼 일치(30000000원) - 0개
-    6개 일치 (2000000000원)- 0개
-    총 수익률은 30%입니다.
-
-     */
+    @Override
+    public String toString() {
+        if (matchCount == 5 && bonusMatch) return String.format("%d개 일치, 보너스 볼 일치(%d원)", matchCount, reward);
+        return String.format("%d개 일치 (%d원)", matchCount, reward);
+    }
 }

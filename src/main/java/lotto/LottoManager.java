@@ -8,10 +8,6 @@ public class LottoManager {
     private Lottos lottos;
     private List<LottoResult> lottoResults;
 
-    public LottoManager() {
-
-    }
-
     public void buyLottos(int money) {
         lottos = new Lottos(money / LOTTO_PRICE);
     }
@@ -20,23 +16,25 @@ public class LottoManager {
         return lottos;
     }
 
-    public List<LottoResult> getLottoResults(LottoNumbers lottoNumbers, LottoNumber bonusNumber) {
-        lottoResults = lottos.getLottoResults(lottoNumbers, bonusNumber);
-        return lottoResults;
+    public void matchWithWinningLotto(Lotto winningLotto, LottoNumber bonusNumber) {
+        lottoResults = lottos.getLottoResults(winningLotto, bonusNumber);
     }
 
-    private long getReward() {
-        long reward = 0;
+    public int[] countRanks() {
+        int[] rankCounts = new int[LottoResult.values().length];
+
         for (LottoResult lottoResult : lottoResults) {
-            System.out.println("result cnt: " + lottoResult.getCount());
-            reward += LottoUtil.changeResultToReward(lottoResult);
+            rankCounts[lottoResults.indexOf(lottoResult)]++;
         }
-        System.out.println("reward: " + reward);
-        return reward;
+
+        return rankCounts;
     }
 
     public long getEarningRate() {
-        return getReward() * 100 / (lottoResults.size() * LOTTO_PRICE);
+        return getTotalReward() * 100 / (lottos.getLottos().size() * LOTTO_PRICE);
     }
 
+    private long getTotalReward() {
+        return lottoResults.stream().mapToInt(result -> result.getReward()).sum();
+    }
 }

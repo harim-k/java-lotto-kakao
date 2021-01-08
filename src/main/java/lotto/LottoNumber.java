@@ -6,8 +6,8 @@ public class LottoNumber implements Comparable<LottoNumber> {
     private final int number;
     private static final LottoNumber[] list = new LottoNumber[46];
 
-    public static LottoNumber getInstance(int number){
-        if(list[number] != null) return list[number];
+    public static LottoNumber getInstance(int number) {
+        if (list[number] != null) return list[number];
         list[number] = new LottoNumber(number);
         return list[number];
     }
