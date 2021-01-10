@@ -39,10 +39,11 @@ public class LottoManager {
     }
 
     public long getEarningRate() {
-        return getTotalReward() * 100 / (lottos.getLottos().size() * LOTTO_PRICE);
+        return getTotalReward() * 100 / (getNumberOfLotto() * LOTTO_PRICE);
     }
 
     private long getTotalReward() {
         return lottoResults.stream().mapToInt(result -> result.getReward()).sum();
     }
+
 }

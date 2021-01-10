@@ -1,6 +1,6 @@
 package lotto;
 
-import java.util.List;
+import java.util.Arrays;
 
 public enum LottoResult {
     FIRST(6, false, 2000000000),

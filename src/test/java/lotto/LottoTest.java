@@ -29,4 +29,27 @@ class LottoTest {
         assertEquals(LottoResult.NOTHING, lotto2.getResult(winningNumbers, bonusNumber));
         assertEquals(LottoResult.NOTHING, lotto3.getResult(winningNumbers, bonusNumber));
     }
+
+    @Test
+    void countSameLottoNumber() {
+        Lotto lotto1 = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto lotto2 = new Lotto(Arrays.asList(7, 8, 9, 10, 11, 12));
+        Lotto lotto3 = new Lotto(Arrays.asList(3, 6, 7, 20, 45, 36));
+
+        assertEquals(6, lotto1.countSameLottoNumber(lotto1));
+        assertEquals(0, lotto1.countSameLottoNumber(lotto2));
+        assertEquals(2, lotto1.countSameLottoNumber(lotto3));
+    }
+
+    @Test
+    void contains() {
+        Lotto lotto = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        LottoNumber lottoNumber1 = LottoNumber.getInstance(1);
+        LottoNumber lottoNumber2 = LottoNumber.getInstance(3);
+        LottoNumber lottoNumber3 = LottoNumber.getInstance(7);
+
+        assertTrue(lotto.contains(lottoNumber1));
+        assertTrue(lotto.contains(lottoNumber2));
+        assertFalse(lotto.contains(lottoNumber3));
+    }
 }
