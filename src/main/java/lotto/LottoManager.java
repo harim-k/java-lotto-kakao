@@ -5,18 +5,26 @@ import java.util.List;
 public class LottoManager {
     public static final int LOTTO_PRICE = 1000;
 
-    private Lottos lottos;
+    private Lottos lottos = new Lottos();
     private List<LottoResult> lottoResults;
 
     public void buyLottos(int money) {
-        lottos = new Lottos(money / LOTTO_PRICE);
+        lottos.addLotto(money / LOTTO_PRICE);
+    }
+
+    public void buyLottos(Lottos lottos) {
+        this.lottos = lottos;
     }
 
     public Lottos getLottos() {
         return lottos;
     }
 
-    public void matchWithWinningLotto(Lotto winningLotto, LottoNumber bonusNumber) {
+    public int getNumberOfLotto() {
+        return lottos.getLottos().size();
+    }
+
+    public void checkLottos(Lotto winningLotto, LottoNumber bonusNumber) {
         lottoResults = lottos.getLottoResults(winningLotto, bonusNumber);
     }
 
@@ -24,7 +32,7 @@ public class LottoManager {
         int[] rankCounts = new int[LottoResult.values().length];
 
         for (LottoResult lottoResult : lottoResults) {
-            rankCounts[lottoResults.indexOf(lottoResult)]++;
+            rankCounts[LottoResult.getIndexOf(lottoResult)]++;
         }
 
         return rankCounts;

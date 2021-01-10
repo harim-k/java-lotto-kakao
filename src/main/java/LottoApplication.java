@@ -9,7 +9,7 @@ public class LottoApplication {
         initLottoManager();
         buyLottos();
         printLottos();
-        matchWithWinningLotto();
+        checkLottos();
         printResults();
     }
 
@@ -25,8 +25,8 @@ public class LottoApplication {
         OutputView.printLottos(lottoManager.getLottos());
     }
 
-    private static void matchWithWinningLotto() {
-        lottoManager.matchWithWinningLotto(
+    private static void checkLottos() {
+        lottoManager.checkLottos(
                 InputView.readWinningLotto(),
                 InputView.readBonusNumber()
         );

@@ -21,12 +21,13 @@ public class OutputView {
     }
 
     public static void printStatistics(int[] rankCounts) {
-        for (int i = rankCounts.length-1; i >= 0; i--) {
+        for (int i = rankCounts.length - 1; i >= 0; i--) {
             printStatistic(LottoResult.values()[i], rankCounts[i]);
         }
     }
 
     public static void printStatistic(LottoResult lottoResult, int rankCount) {
+        if(lottoResult == LottoResult.NOTHING) return;
         System.out.println(lottoResult + " " + rankCount + "개");
     }
 }

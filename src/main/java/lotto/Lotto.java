@@ -16,20 +16,20 @@ public class Lotto {
         this(NumberUtil.generateLottoNumbers());
     }
 
-    public Lotto(List<Integer> numbers){
+    public Lotto(List<Integer> numbers) {
         validate(numbers);
-        numbers.forEach( num ->
+        numbers.forEach(num ->
                 lottoNumbers.add(LottoNumber.getInstance(num))
         );
     }
 
     private void validate(List<Integer> numbers) {
-        if(numbers.size() != LOTTO_NUMBER_COUNT){
+        if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException();
         }
     }
 
-    public LottoResult getResult(Lotto winningLotto, LottoNumber bonusNumber){
+    public LottoResult getResult(Lotto winningLotto, LottoNumber bonusNumber) {
         return LottoResult.init(
                 countSameLottoNumber(winningLotto),
                 contains(bonusNumber)
@@ -47,8 +47,8 @@ public class Lotto {
         return 12 - set.size();
     }
 
-    public boolean contains(LottoNumber bonusNumber) {
-        return lottoNumbers.contains(bonusNumber);
+    public boolean contains(LottoNumber lottoNumber) {
+        return lottoNumbers.contains(lottoNumber);
     }
 
     @Override

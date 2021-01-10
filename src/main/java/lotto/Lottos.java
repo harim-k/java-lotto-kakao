@@ -8,7 +8,17 @@ public class Lottos {
 
     private final List<Lotto> lottos = new ArrayList<>();
 
-    public Lottos(int n) {
+    public void addLotto(Lotto lotto){
+        lottos.add(lotto);
+    }
+
+    public void addLotto(List<Lotto> lottos){
+        for (Lotto lotto : lottos) {
+            lottos.add(lotto);
+        }
+    }
+
+    public void addLotto(int n){
         for (int i = 0; i < n; i++) {
             lottos.add(new Lotto());
         }
@@ -21,7 +31,6 @@ public class Lottos {
     public List<LottoResult> getLottoResults(Lotto winningLotto, LottoNumber bonusNumber) {
         return lottos.stream()
                 .map(lotto -> lotto.getResult(winningLotto, bonusNumber))
-                .filter(lottoResult -> lottoResult != null)
                 .collect(Collectors.toList());
     }
 }
