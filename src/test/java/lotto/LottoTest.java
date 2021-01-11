@@ -10,20 +10,20 @@ class LottoTest {
     @Test
     void validate() {
         assertThatThrownBy(() -> {
-            Lotto wrongLottoNumbers = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+            Lotto wrongLottoNumbers = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         });
 
-        Lotto correctLottoNumbers = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto correctLottoNumbers = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
     }
 
     @Test
     void getResult() {
-        Lotto winningNumbers = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto winningNumbers = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
         LottoNumber bonusNumber = LottoNumber.getInstance(7);
 
-        Lotto lotto1 = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Lotto lotto2 = new Lotto(Arrays.asList(7, 8, 9, 10, 11, 12));
-        Lotto lotto3 = new Lotto(Arrays.asList(3, 6, 7, 20, 45, 36));
+        Lotto lotto1 = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto lotto2 = Lotto.generateLotto(Arrays.asList(7, 8, 9, 10, 11, 12));
+        Lotto lotto3 = Lotto.generateLotto(Arrays.asList(3, 6, 7, 20, 45, 36));
 
         assertEquals(LottoResult.FIRST, lotto1.getResult(winningNumbers, bonusNumber));
         assertEquals(LottoResult.NOTHING, lotto2.getResult(winningNumbers, bonusNumber));
@@ -32,9 +32,9 @@ class LottoTest {
 
     @Test
     void countSameLottoNumber() {
-        Lotto lotto1 = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Lotto lotto2 = new Lotto(Arrays.asList(7, 8, 9, 10, 11, 12));
-        Lotto lotto3 = new Lotto(Arrays.asList(3, 6, 7, 20, 45, 36));
+        Lotto lotto1 = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto lotto2 = Lotto.generateLotto(Arrays.asList(7, 8, 9, 10, 11, 12));
+        Lotto lotto3 = Lotto.generateLotto(Arrays.asList(3, 6, 7, 20, 45, 36));
 
         assertEquals(6, lotto1.countSameLottoNumber(lotto1));
         assertEquals(0, lotto1.countSameLottoNumber(lotto2));
@@ -43,7 +43,7 @@ class LottoTest {
 
     @Test
     void contains() {
-        Lotto lotto = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto lotto = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
         LottoNumber lottoNumber1 = LottoNumber.getInstance(1);
         LottoNumber lottoNumber2 = LottoNumber.getInstance(3);
         LottoNumber lottoNumber3 = LottoNumber.getInstance(7);

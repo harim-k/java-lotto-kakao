@@ -10,11 +10,7 @@ public class Lotto {
     private static final int LOTTO_NUMBER_COUNT = 6;
     private final List<LottoNumber> lottoNumbers = new ArrayList<>();
 
-    public Lotto() {
-        this(generateLottoNumbers());
-    }
-
-    public Lotto(List<Integer> numbers) {
+    private Lotto(List<Integer> numbers) {
         validate(numbers);
         numbers.forEach(num ->
                 lottoNumbers.add(LottoNumber.getInstance(num))

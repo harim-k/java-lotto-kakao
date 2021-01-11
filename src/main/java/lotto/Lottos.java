@@ -20,7 +20,7 @@ public class Lottos {
 
     public void addLotto(int n){
         for (int i = 0; i < n; i++) {
-            lottos.add(new Lotto());
+            lottos.add(Lotto.generateRandomLotto());
         }
     }
 
