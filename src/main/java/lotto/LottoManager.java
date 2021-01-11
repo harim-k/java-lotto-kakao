@@ -9,7 +9,7 @@ public class LottoManager {
     private List<LottoResult> lottoResults;
 
     public void buyLottos(int money) {
-        lottos.addLotto(money / LOTTO_PRICE);
+        lottos.addRandomLottos(money / LOTTO_PRICE);
     }
 
     public void buyLottos(Lottos lottos) {

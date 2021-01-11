@@ -12,15 +12,9 @@ public class Lottos {
         lottos.add(lotto);
     }
 
-    public void addLotto(List<Lotto> lottos){
-        for (Lotto lotto : lottos) {
-            lottos.add(lotto);
-        }
-    }
-
-    public void addLotto(int n){
-        for (int i = 0; i < n; i++) {
-            lottos.add(Lotto.generateRandomLotto());
+    public void addRandomLottos(int numberOfLottos){
+        for (int i = 0; i < numberOfLottos; i++) {
+            addLotto(Lotto.generateRandomLotto());
         }
     }
 
