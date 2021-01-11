@@ -1,7 +1,5 @@
 package lotto;
 
-import java.util.Arrays;
-
 public enum LottoResult {
     FIRST(6, false, 2000000000),
     SECOND(5, true, 30000000),
@@ -34,10 +32,6 @@ public enum LottoResult {
         this.matchCount = matchCount;
         this.bonusMatch = bonusMatch;
         this.reward = reward;
-    }
-
-    public static int getIndexOf(LottoResult lottoResult) {
-        return Arrays.asList(LottoResult.values()).indexOf(lottoResult);
     }
 
     public int getReward() {

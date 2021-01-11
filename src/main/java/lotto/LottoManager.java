@@ -11,13 +11,17 @@ public class LottoManager {
     private Lottos lottos = new Lottos();
     private List<LottoResult> lottoResults;
 
-    public void buyLottos(int money) {
+    public void buyRandomLottos(int money) {
         validateMoney(money);
         int numberOfLottos = money / LOTTO_PRICE;
         lottos.addRandomLottos(numberOfLottos);
     }
 
-    public void validateMoney(int money) {
+    public void buyManualLotto(Lotto lotto) {
+        lottos.addLotto(lotto);
+    }
+
+    private void validateMoney(int money) {
         if (money % LOTTO_PRICE != 0 || money == 0) {
             throw new IllegalArgumentException();
         }

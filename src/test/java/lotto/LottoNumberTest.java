@@ -3,7 +3,8 @@ package lotto;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LottoNumberTest {
     @Test
@@ -26,13 +27,4 @@ public class LottoNumberTest {
         assertFalse(LottoNumber.getInstance(1).equals(LottoNumber.getInstance(2)));
     }
 
-    @Test
-    void compareTo() {
-        LottoNumber lottoNumber1 = LottoNumber.getInstance(1);
-        LottoNumber lottoNumber2 = LottoNumber.getInstance(1);
-        LottoNumber lottoNumber3 = LottoNumber.getInstance(2);
-        assertEquals(lottoNumber1.compareTo(lottoNumber2),0);
-        assertEquals(lottoNumber1.compareTo(lottoNumber3),-1);
-        assertEquals(lottoNumber3.compareTo(lottoNumber1),1);
-    }
 }

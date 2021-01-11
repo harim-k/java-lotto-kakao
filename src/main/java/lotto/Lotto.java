@@ -19,11 +19,11 @@ public class Lotto {
         );
     }
 
-    public static Lotto generateRandomLotto(){
+    public static Lotto generateRandomLotto() {
         return new Lotto(generateLottoNumbers());
     }
 
-    public static Lotto generateLotto(List<Integer> numbers){
+    public static Lotto generateLotto(List<Integer> numbers) {
         return new Lotto(numbers);
     }
 
@@ -40,7 +40,7 @@ public class Lotto {
         );
     }
 
-    public int countSameLottoNumber(Lotto lotto) {
+    private int countSameLottoNumber(Lotto lotto) {
         Set<LottoNumber> set = new HashSet<>();
 
         for (int i = 0; i < LOTTO_NUMBER_COUNT; i++) {
@@ -51,7 +51,7 @@ public class Lotto {
         return LOTTO_NUMBER_COUNT * 2 - set.size();
     }
 
-    public boolean contains(LottoNumber lottoNumber) {
+    private boolean contains(LottoNumber lottoNumber) {
         return lottoNumbers.contains(lottoNumber);
     }
 

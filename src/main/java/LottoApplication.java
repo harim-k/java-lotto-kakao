@@ -18,7 +18,7 @@ public class LottoApplication {
     }
 
     private static void buyLottos() {
-        lottoManager.buyLottos(InputView.readMoney());
+        lottoManager.buyRandomLottos(InputView.readMoney());
     }
 
     private static void printLottos() {
