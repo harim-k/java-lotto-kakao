@@ -4,12 +4,12 @@ public class LottoNumber implements Comparable<LottoNumber> {
     private static final int MAX_LOTTO_NUMBER = 45;
     private static final int MIN_LOTTO_NUMBER = 1;
     private final int number;
-    private static final LottoNumber[] list = new LottoNumber[46];
+    private static final LottoNumber[] LIST = new LottoNumber[46];
 
     public static LottoNumber getInstance(int number) {
-        if (list[number] != null) return list[number];
-        list[number] = new LottoNumber(number);
-        return list[number];
+        if (LIST[number] != null) return LIST[number];
+        LIST[number] = new LottoNumber(number);
+        return LIST[number];
     }
 
     private LottoNumber(int number) {
