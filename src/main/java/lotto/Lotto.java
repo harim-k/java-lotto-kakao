@@ -39,12 +39,12 @@ public class Lotto {
     public int countSameLottoNumber(Lotto lotto) {
         Set<LottoNumber> set = new HashSet<>();
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < LOTTO_NUMBER_COUNT; i++) {
             set.add(this.lottoNumbers.get(i));
             set.add(lotto.lottoNumbers.get(i));
         }
 
-        return 12 - set.size();
+        return LOTTO_NUMBER_COUNT * 2 - set.size();
     }
 
     public boolean contains(LottoNumber lottoNumber) {
