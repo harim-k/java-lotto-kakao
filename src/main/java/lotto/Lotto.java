@@ -1,19 +1,17 @@
 package lotto;
 
-import utils.NumberUtil;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static lotto.LottoNumber.MAX_LOTTO_NUMBER;
+import static lotto.LottoNumber.MIN_LOTTO_NUMBER;
 
 public class Lotto {
     private static final int LOTTO_NUMBER_COUNT = 6;
     private final List<LottoNumber> lottoNumbers = new ArrayList<>();
 
     public Lotto() {
-        this(NumberUtil.generateLottoNumbers());
+        this(generateLottoNumbers());
     }
 
     public Lotto(List<Integer> numbers) {
@@ -58,5 +56,17 @@ public class Lotto {
                 .collect(Collectors.joining(", "));
     }
 
+    public static List<Integer> generateLottoNumbers() {
+        List<Integer> lottoNumbers = new LinkedList<>();
+        for (int i = MIN_LOTTO_NUMBER; i <= MAX_LOTTO_NUMBER; i++) {
+            lottoNumbers.add(i);
+        }
+
+        Collections.shuffle(lottoNumbers);
+        List<Integer> sixLottoNumbers = lottoNumbers.subList(0, LOTTO_NUMBER_COUNT);
+        Collections.sort(sixLottoNumbers);
+
+        return sixLottoNumbers;
+    }
 }
 
