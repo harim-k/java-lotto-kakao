@@ -1,6 +1,8 @@
 package lotto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static lotto.Lotto.LOTTO_PRICE;
 
@@ -33,14 +35,18 @@ public class LottoManager {
         lottoResults = lottos.checkLottos(winningLotto, bonusNumber);
     }
 
-    public int[] countRanks() {
-        int[] rankCounts = new int[LottoResult.values().length];
+    public Map<LottoResult, Integer> makeStatistics() {
+        Map<LottoResult, Integer> statistics = new HashMap<>();
 
-        for (LottoResult lottoResult : lottoResults) {
-            rankCounts[LottoResult.getIndexOf(lottoResult)]++;
+        for(LottoResult lottoResult : LottoResult.values()){
+            statistics.put(lottoResult, 0);
         }
 
-        return rankCounts;
+        for(LottoResult lottoResult : lottoResults){
+            statistics.put(lottoResult, statistics.get(lottoResult) + 1);
+        }
+
+        return statistics;
     }
 
     public long getEarningRate() {

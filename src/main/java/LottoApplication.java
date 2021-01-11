@@ -34,7 +34,7 @@ public class LottoApplication {
     }
 
     private static void printResults() {
-        OutputView.printStatistics(lottoManager.countRanks());
+        OutputView.printStatistics(lottoManager.makeStatistics());
         OutputView.printEarningRate(lottoManager.getEarningRate());
     }
 }

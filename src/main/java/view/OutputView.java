@@ -4,6 +4,8 @@ import lotto.Lotto;
 import lotto.LottoResult;
 import lotto.Lottos;
 
+import java.util.Map;
+
 public class OutputView {
     public static void printLottos(Lottos lottos) {
         for (Lotto lotto : lottos.getLottos()) {
@@ -19,15 +21,18 @@ public class OutputView {
         System.out.println("총 수익률은 " + earningRate + "%입니다");
     }
 
-    public static void printStatistics(int[] rankCounts) {
-        for (int i = rankCounts.length - 1; i >= 0; i--) {
-            printStatistic(LottoResult.values()[i], rankCounts[i]);
-        }
-    }
+    public static void printStatistics(Map<LottoResult, Integer> statistics) {
+        LottoResult[] printSequence = new LottoResult[]{
+                LottoResult.FIFTH,
+                LottoResult.FOURTH,
+                LottoResult.THIRD,
+                LottoResult.SECOND,
+                LottoResult.FIRST
+        };
 
-    public static void printStatistic(LottoResult lottoResult, int rankCount) {
-        if(lottoResult == LottoResult.NOTHING) return;
-        System.out.println(lottoResult + " " + rankCount + "개");
+        for (LottoResult lottoResult : printSequence) {
+            System.out.println(lottoResult + " " + statistics.get(lottoResult) + "개");
+        }
     }
 
     public static void printNumberOfLottos(int numberOfLottos) {

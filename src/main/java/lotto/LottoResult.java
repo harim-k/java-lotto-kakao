@@ -26,6 +26,7 @@ public enum LottoResult {
         if (matchCount == THIRD_WINNER_MATCH_COUNT) return THIRD;
         if (matchCount == FOURTH_WINNER_MATCH_COUNT) return FOURTH;
         if (matchCount == FIFTH_WINNER_MATCH_COUNT) return FIFTH;
+
         return LottoResult.NOTHING;
     }
 
