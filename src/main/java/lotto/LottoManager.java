@@ -2,21 +2,30 @@ package lotto;
 
 import java.util.List;
 
+import static lotto.Lotto.LOTTO_PRICE;
+
 public class LottoManager {
-    public static final int LOTTO_PRICE = 1000;
 
     private Lottos lottos = new Lottos();
     private List<LottoResult> lottoResults;
 
     public void buyLottos(int money) {
-        lottos.addRandomLottos(money / LOTTO_PRICE);
+        validateMoney(money);
+        int numberOfLottos = money / LOTTO_PRICE;
+        lottos.addRandomLottos(numberOfLottos);
+    }
+
+    public void validateMoney(int money) {
+        if (money % LOTTO_PRICE != 0 || money == 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public Lottos getLottos() {
         return lottos;
     }
 
-    public int getNumberOfLotto() {
+    public int getNumberOfLottos() {
         return lottos.getLottos().size();
     }
 
@@ -35,7 +44,7 @@ public class LottoManager {
     }
 
     public long getEarningRate() {
-        return getTotalReward() * 100 / (getNumberOfLotto() * LOTTO_PRICE);
+        return getTotalReward() * 100 / (getNumberOfLottos() * LOTTO_PRICE);
     }
 
     private long getTotalReward() {

@@ -22,6 +22,7 @@ public class LottoApplication {
     }
 
     private static void printLottos() {
+        OutputView.printNumberOfLottos(lottoManager.getNumberOfLottos());
         OutputView.printLottos(lottoManager.getLottos());
     }
 

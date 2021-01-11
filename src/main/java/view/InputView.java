@@ -1,7 +1,6 @@
 package view;
 
 import lotto.Lotto;
-import lotto.LottoManager;
 import lotto.LottoNumber;
 
 import java.util.Arrays;
@@ -14,10 +13,7 @@ public class InputView {
 
     public static int readMoney() {
         System.out.println("구입금액을 입력해 주세요.");
-        int money = Integer.parseInt(scanner.nextLine());
-        validationMoney(money);
-        System.out.println((money / LottoManager.LOTTO_PRICE) + "개를 구매했습니다.");
-        return money;
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public static Lotto readWinningLotto() {
@@ -35,11 +31,5 @@ public class InputView {
         int bonusNumber = Integer.parseInt(scanner.nextLine());
 
         return LottoNumber.getInstance(bonusNumber);
-    }
-
-    public static void validationMoney(int money) {
-        if (money % 1000 != 0 || money == 0) {
-            throw new IllegalArgumentException();
-        }
     }
 }

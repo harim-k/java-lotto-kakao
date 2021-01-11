@@ -8,6 +8,8 @@ import static lotto.LottoNumber.MIN_LOTTO_NUMBER;
 
 public class Lotto {
     private static final int LOTTO_NUMBER_COUNT = 6;
+    static final int LOTTO_PRICE = 1000;
+
     private final List<LottoNumber> lottoNumbers = new ArrayList<>();
 
     private Lotto(List<Integer> numbers) {

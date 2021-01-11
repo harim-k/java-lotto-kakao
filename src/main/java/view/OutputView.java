@@ -15,7 +15,6 @@ public class OutputView {
         System.out.println("[" + lotto.toString() + "]");
     }
 
-
     public static void printEarningRate(long earningRate) {
         System.out.println("총 수익률은 " + earningRate + "%입니다");
     }
@@ -29,5 +28,9 @@ public class OutputView {
     public static void printStatistic(LottoResult lottoResult, int rankCount) {
         if(lottoResult == LottoResult.NOTHING) return;
         System.out.println(lottoResult + " " + rankCount + "개");
+    }
+
+    public static void printNumberOfLottos(int numberOfLottos) {
+        System.out.println(numberOfLottos + "개를 구매했습니다.");
     }
 }

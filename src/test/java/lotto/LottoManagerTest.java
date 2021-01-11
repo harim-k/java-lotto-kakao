@@ -10,8 +10,8 @@ public class LottoManagerTest {
     @Test
     void getNumberOfLotto() {
         LottoManager lottoManager = new LottoManager();
-        lottoManager.buyLottos(LottoManager.LOTTO_PRICE * 2);
-        assertEquals(2, lottoManager.getNumberOfLotto());
+        lottoManager.buyLottos(2000);
+        assertEquals(2, lottoManager.getNumberOfLottos());
     }
 
     @Test
