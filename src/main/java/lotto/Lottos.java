@@ -22,9 +22,9 @@ public class Lottos {
         return lottos;
     }
 
-    public List<LottoResult> getLottoResults(Lotto winningLotto, LottoNumber bonusNumber) {
+    public List<LottoResult> checkLottos(Lotto winningLotto, LottoNumber bonusNumber) {
         return lottos.stream()
-                .map(lotto -> lotto.getResult(winningLotto, bonusNumber))
+                .map(lotto -> lotto.checkLotto(winningLotto, bonusNumber))
                 .collect(Collectors.toList());
     }
 }

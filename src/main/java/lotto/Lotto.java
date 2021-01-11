@@ -31,8 +31,8 @@ public class Lotto {
         }
     }
 
-    public LottoResult getResult(Lotto winningLotto, LottoNumber bonusNumber) {
-        return LottoResult.init(
+    public LottoResult checkLotto(Lotto winningLotto, LottoNumber bonusNumber) {
+        return LottoResult.getResult(
                 countSameLottoNumber(winningLotto),
                 contains(bonusNumber)
         );

@@ -21,7 +21,7 @@ public class LottoManager {
     }
 
     public void checkLottos(Lotto winningLotto, LottoNumber bonusNumber) {
-        lottoResults = lottos.getLottoResults(winningLotto, bonusNumber);
+        lottoResults = lottos.checkLottos(winningLotto, bonusNumber);
     }
 
     public int[] countRanks() {

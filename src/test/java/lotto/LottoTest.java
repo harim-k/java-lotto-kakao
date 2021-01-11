@@ -25,9 +25,9 @@ class LottoTest {
         Lotto lotto2 = Lotto.generateLotto(Arrays.asList(7, 8, 9, 10, 11, 12));
         Lotto lotto3 = Lotto.generateLotto(Arrays.asList(3, 6, 7, 20, 45, 36));
 
-        assertEquals(LottoResult.FIRST, lotto1.getResult(winningNumbers, bonusNumber));
-        assertEquals(LottoResult.NOTHING, lotto2.getResult(winningNumbers, bonusNumber));
-        assertEquals(LottoResult.NOTHING, lotto3.getResult(winningNumbers, bonusNumber));
+        assertEquals(LottoResult.FIRST, lotto1.checkLotto(winningNumbers, bonusNumber));
+        assertEquals(LottoResult.NOTHING, lotto2.checkLotto(winningNumbers, bonusNumber));
+        assertEquals(LottoResult.NOTHING, lotto3.checkLotto(winningNumbers, bonusNumber));
     }
 
     @Test

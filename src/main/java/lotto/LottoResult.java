@@ -20,7 +20,7 @@ public enum LottoResult {
     private final boolean bonusMatch;
     private final int reward;
 
-    public static LottoResult init(int matchCount, boolean bonusMatch) {
+    public static LottoResult getResult(int matchCount, boolean bonusMatch) {
         if (matchCount == FIRST_WINNER_MATCH_CONT) return FIRST;
         if (matchCount == SECOND_WINNER_MATCH_COUNT && bonusMatch) return SECOND;
         if (matchCount == THIRD_WINNER_MATCH_COUNT) return THIRD;
