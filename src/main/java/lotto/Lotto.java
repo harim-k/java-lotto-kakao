@@ -17,6 +17,14 @@ public class Lotto {
         );
     }
 
+    public static Lotto generateRandomLotto(){
+        return new Lotto(generateLottoNumbers());
+    }
+
+    public static Lotto generateLotto(List<Integer> numbers){
+        return new Lotto(numbers);
+    }
+
     private void validate(List<Integer> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException();

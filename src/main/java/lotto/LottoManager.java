@@ -12,10 +12,6 @@ public class LottoManager {
         lottos.addRandomLottos(money / LOTTO_PRICE);
     }
 
-    public void buyLottos(Lottos lottos) {
-        this.lottos = lottos;
-    }
-
     public Lottos getLottos() {
         return lottos;
     }

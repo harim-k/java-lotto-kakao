@@ -19,11 +19,10 @@ public class LottoManagerTest {
         LottoManager lottoManager = new LottoManager();
 
         Lottos lottos = new Lottos();
-        lottos.addLotto(new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6)));
-        lottos.addLotto(new Lotto(Arrays.asList(11, 12, 13, 14, 15, 16)));
-        lottoManager.buyLottos(lottos);
+        lottos.addLotto(Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6)));
+        lottos.addLotto(Lotto.generateLotto(Arrays.asList(11, 12, 13, 14, 15, 16)));
 
-        Lotto winningLotto = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Lotto winningLotto = Lotto.generateLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
         LottoNumber lottoNumber = LottoNumber.getInstance(7);
 
         lottoManager.checkLottos(winningLotto, lottoNumber);
