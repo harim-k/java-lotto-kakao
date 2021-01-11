@@ -56,8 +56,8 @@ public class Lotto {
                 .collect(Collectors.joining(", "));
     }
 
-    public static List<Integer> generateLottoNumbers() {
-        List<Integer> lottoNumbers = new LinkedList<>();
+    private static List<Integer> generateLottoNumbers() {
+        List<Integer> lottoNumbers = new ArrayList<>();
         for (int i = MIN_LOTTO_NUMBER; i <= MAX_LOTTO_NUMBER; i++) {
             lottoNumbers.add(i);
         }
