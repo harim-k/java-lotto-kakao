@@ -1,8 +1,8 @@
 package lotto;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static lotto.Lotto.LOTTO_PRICE;
 
@@ -11,20 +11,25 @@ public class LottoManager {
     private Lottos lottos = new Lottos();
     private List<LottoResult> lottoResults;
 
+    /*
+    public void buyLottos(int money, int numberOfManualLottos, List<List<Integer>> numbersSet) {
+        buyRandomLottos(money - numberOfManualLottos * LOTTO_PRICE);
+        buyManualLotto(numberOfManualLottos);
+    }
+
     public void buyRandomLottos(int money) {
         validateMoney(money);
         int numberOfLottos = money / LOTTO_PRICE;
         lottos.addRandomLottos(numberOfLottos);
     }
+     */
 
-    public void buyManualLotto(Lotto lotto) {
-        lottos.addLotto(lotto);
+    public void buyRandomLotto() {
+        lottos.addRandomLotto();
     }
 
-    private void validateMoney(int money) {
-        if (money % LOTTO_PRICE != 0 || money == 0) {
-            throw new IllegalArgumentException();
-        }
+    public void buyManualLotto(List<Integer> numbers) {
+        lottos.addManualLotto(numbers);
     }
 
     public Lottos getLottos() {
@@ -39,18 +44,8 @@ public class LottoManager {
         lottoResults = lottos.checkLottos(winningLotto, bonusNumber);
     }
 
-    public Map<LottoResult, Integer> makeStatistics() {
-        Map<LottoResult, Integer> statistics = new HashMap<>();
-
-        for(LottoResult lottoResult : LottoResult.values()){
-            statistics.put(lottoResult, 0);
-        }
-
-        for(LottoResult lottoResult : lottoResults){
-            statistics.put(lottoResult, statistics.get(lottoResult) + 1);
-        }
-
-        return statistics;
+    public Map<LottoResult, Long> makeStatistics() {
+        return lottoResults.stream().collect(Collectors.groupingBy(lottoResult -> lottoResult, Collectors.counting()));
     }
 
     public long getEarningRate() {

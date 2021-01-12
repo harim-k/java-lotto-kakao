@@ -12,10 +12,12 @@ public class Lottos {
         lottos.add(lotto);
     }
 
-    public void addRandomLottos(int numberOfLottos){
-        for (int i = 0; i < numberOfLottos; i++) {
-            addLotto(Lotto.generateRandomLotto());
-        }
+    public void addRandomLotto(){
+        addLotto(Lotto.generateRandomLotto());
+    }
+
+    public void addManualLotto(List<Integer> numbers){
+        addLotto(Lotto.generateManualLotto(numbers));
     }
 
     public List<Lotto> getLottos() {
