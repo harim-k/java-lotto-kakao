@@ -13,6 +13,10 @@ class LottoTest {
             Lotto wrongLottoNumbers = Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         });
 
+        assertThatThrownBy(() -> {
+            Lotto wrongLottoNumbers = Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 5));
+        });
+
         Lotto correctLottoNumbers = Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
     }
 

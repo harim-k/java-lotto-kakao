@@ -17,7 +17,7 @@ public class OutputView {
         System.out.println("[" + lotto.toString() + "]");
     }
 
-    public static void printEarningRate(long earningRate) {
+    public static void printEarningRate(double earningRate) {
         System.out.println("총 수익률은 " + earningRate + "%입니다");
     }
 
@@ -36,11 +36,12 @@ public class OutputView {
         }
     }
 
-    public static void printNumberOfLottos(int numberOfLottos) {
-        System.out.println(numberOfLottos + "개를 구매했습니다.");
+    public static void printNumberOfLottos(int numberOfManualLottos, int numberOfRandomLottos) {
+        System.out.println("수동으로 " + numberOfManualLottos + "개 자동으로 " + numberOfRandomLottos + "개를 구매했습니다.");
     }
 
     public static void printAskingManualLottoNumbers() {
         System.out.println("수동으로 구매할 번호를 입력해 주세요.");
     }
+
 }

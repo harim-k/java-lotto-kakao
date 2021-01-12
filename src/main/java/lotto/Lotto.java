@@ -45,7 +45,7 @@ public class Lotto {
             numberSet.add(number);
         }
 
-        if (numberSet.size() != LOTTO_NUMBERS_COUNT){
+        if (numberSet.size() != LOTTO_NUMBERS_COUNT) {
             throw new IllegalArgumentException("Input numbers contains duplicate numbers.");
         }
     }

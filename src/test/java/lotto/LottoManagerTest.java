@@ -3,47 +3,51 @@ package lotto;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LottoManagerTest {
-    /*
+
     @Test
     void getNumberOfLotto() {
         LottoManager lottoManager = new LottoManager();
-        lottoManager.buyRandomLottos(2000);
-        assertEquals(2, lottoManager.getNumberOfLottos());
+
+        lottoManager.buyRandomLotto();
+        lottoManager.buyRandomLotto();
+        lottoManager.buyManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+
+        assertEquals(3, lottoManager.getNumberOfLottos());
     }
 
     @Test
     void getEarningRate() {
         LottoManager lottoManager = new LottoManager();
 
-        lottoManager.buyManualLotto(Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6)));
-        lottoManager.buyManualLotto(Lotto.generateManualLotto(Arrays.asList(11, 12, 13, 14, 15, 16)));
+        lottoManager.buyManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        lottoManager.buyManualLotto(Arrays.asList(11, 12, 13, 14, 15, 16));
 
-        Lotto winningLotto = Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
-        LottoNumber lottoNumber = LottoNumber.of(7);
+        List<Integer> winningLotto = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int bonusNumber = 7;
 
-        lottoManager.checkLottos(winningLotto, lottoNumber);
+        lottoManager.checkLottos(winningLotto, bonusNumber);
 
-        assertEquals(100000000, lottoManager.getEarningRate());
+        assertEquals(1_000_000, lottoManager.getEarningRate());
     }
 
     @Test
     void makeStatistics(){
         LottoManager lottoManager = new LottoManager();
 
-        lottoManager.buyManualLotto(Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 7)));
-        lottoManager.buyManualLotto(Lotto.generateManualLotto(Arrays.asList(11, 12, 13, 14, 15, 16)));
+        lottoManager.buyManualLotto(Arrays.asList(1, 2, 3, 4, 5, 7));
+        lottoManager.buyManualLotto(Arrays.asList(11, 12, 13, 14, 15, 16));
 
-        Lotto winningLotto = Lotto.generateManualLotto(Arrays.asList(1, 2, 3, 4, 5, 6));
-        LottoNumber lottoNumber = LottoNumber.of(7);
+        List<Integer> winningLotto = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int bonusNumber = 7;
 
-        lottoManager.checkLottos(winningLotto, lottoNumber);
+        lottoManager.checkLottos(winningLotto, bonusNumber);
 
         assertEquals(1, lottoManager.makeStatistics().get(LottoResult.SECOND));
     }
 
-     */
 }

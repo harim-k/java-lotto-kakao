@@ -9,14 +9,14 @@ public class LottoApplication {
     private static LottoManager lottoManager;
 
     public static void main(String[] arg) {
-        initLottoManager();
+        createLottoManager();
         buyLottos();
         printLottos();
         checkLottos();
         printResults();
     }
 
-    private static void initLottoManager() {
+    private static void createLottoManager() {
         lottoManager = new LottoManager();
     }
 
@@ -25,10 +25,12 @@ public class LottoApplication {
         validateMoney(money);
 
         int numberOfManualLottos = InputView.readNumberOfManualLottos();
-        int numberOfRandomLottos = money / Lotto.LOTTO_PRICE - numberOfManualLottos ;
+        int numberOfRandomLottos = money / Lotto.LOTTO_PRICE - numberOfManualLottos;
 
         buyManualLottos(numberOfManualLottos);
         buyRandomLottos(numberOfRandomLottos);
+
+        OutputView.printNumberOfLottos(numberOfManualLottos, numberOfRandomLottos);
     }
 
     private static void buyRandomLottos(int numberOfRandomLottos) {
@@ -45,7 +47,6 @@ public class LottoApplication {
     }
 
     private static void printLottos() {
-        OutputView.printNumberOfLottos(lottoManager.getNumberOfLottos());
         OutputView.printLottos(lottoManager.getLottos());
     }
 
