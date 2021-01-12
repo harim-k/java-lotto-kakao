@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.Arrays;
+
 public enum LottoResult {
     FIRST(6, false, 2000000000),
     SECOND(5, true, 30000000),
@@ -19,13 +21,12 @@ public enum LottoResult {
     private final int reward;
 
     public static LottoResult getResult(int matchCount, boolean bonusMatch) {
-        if (matchCount == FIRST_WINNER_MATCH_CONT) return FIRST;
-        if (matchCount == SECOND_WINNER_MATCH_COUNT && bonusMatch) return SECOND;
-        if (matchCount == THIRD_WINNER_MATCH_COUNT) return THIRD;
-        if (matchCount == FOURTH_WINNER_MATCH_COUNT) return FOURTH;
-        if (matchCount == FIFTH_WINNER_MATCH_COUNT) return FIFTH;
+        boolean finalBonusMatch = matchCount == 5 ? bonusMatch : false;
 
-        return LottoResult.NOTHING;
+        return Arrays.stream(LottoResult.values())
+                .filter(result -> result.matchCount == matchCount && result.bonusMatch == finalBonusMatch)
+                .findFirst()
+                .orElse(NOTHING);
     }
 
     LottoResult(int matchCount, boolean bonusMatch, int reward) {
