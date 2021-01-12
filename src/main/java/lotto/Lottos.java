@@ -8,11 +8,7 @@ public class Lottos {
 
     private final List<Lotto> lottos = new ArrayList<>();
 
-    public void addRandomLotto() {
-        lottos.add(Lotto.generateRandomLotto());
-    }
-
-    public void addManualLotto(Lotto lotto) {
+    public void addLotto(Lotto lotto) {
         lottos.add(lotto);
     }
 

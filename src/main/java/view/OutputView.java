@@ -7,18 +7,13 @@ import lotto.Lottos;
 import java.util.Map;
 
 public class OutputView {
-    public static void printLottos(Lottos lottos) {
-        for (Lotto lotto : lottos.getLottos()) {
-            printLotto(lotto);
-        }
-    }
 
     public static void printLotto(Lotto lotto) {
         System.out.println("[" + lotto.toString() + "]");
     }
 
     public static void printEarningRate(double earningRate) {
-        System.out.println("총 수익률은 " + earningRate + "%입니다");
+        System.out.print("총 수익률은 " + earningRate + "입니다.");
     }
 
     public static void printStatistics(Map<LottoResult, Long> statistics) {
