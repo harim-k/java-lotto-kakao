@@ -58,14 +58,16 @@ public class Lotto {
     }
 
     private int countSameLottoNumber(Lotto lotto) {
-        Set<LottoNumber> set = new HashSet<>();
+        Set<LottoNumber> set1 = new HashSet<>();
+        Set<LottoNumber> set2 = new HashSet<>();
 
         for (int i = 0; i < LOTTO_NUMBERS_COUNT; i++) {
-            set.add(this.lottoNumbers.get(i));
-            set.add(lotto.lottoNumbers.get(i));
+            set1.add(this.lottoNumbers.get(i));
+            set2.add(lotto.lottoNumbers.get(i));
         }
+        set1.retainAll(set2);
 
-        return LOTTO_NUMBERS_COUNT * 2 - set.size();
+        return set1.size();
     }
 
     private boolean contains(LottoNumber lottoNumber) {
