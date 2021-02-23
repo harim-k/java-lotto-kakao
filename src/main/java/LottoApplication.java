@@ -20,11 +20,11 @@ public class LottoApplication {
         printResults();
     }
 
-    public static void createLottos() {
+    private static void createLottos() {
         lottos = new Lottos();
     }
 
-    public static void buyLottos() {
+    private static void buyLottos() {
         int money = InputView.readMoney();
         validateMoney(money);
 
@@ -49,7 +49,7 @@ public class LottoApplication {
         }
     }
 
-    public static void buyManualLottos(int numberOfManualLottos) {
+    private static void buyManualLottos(int numberOfManualLottos) {
         if (numberOfManualLottos < 0)
             return;
 
@@ -67,7 +67,7 @@ public class LottoApplication {
         }
     }
 
-    public static void checkLottos() {
+    private static void checkLottos() {
         Lotto winningLotto = Lotto.generateManualLotto(InputView.readWinningLotto());
         LottoNumber bonusNumber = LottoNumber.of(InputView.readBonusNumber());
 
@@ -79,15 +79,15 @@ public class LottoApplication {
         OutputView.printEarningRate(getEarningRate());
     }
 
-    public static Map<LottoResult, Long> makeStatistics(){
+    private static Map<LottoResult, Long> makeStatistics(){
         return lottoResults.stream().collect(Collectors.groupingBy(lottoResult -> lottoResult, Collectors.counting()));
     }
 
-    public static double getEarningRate()  {
+    private static double getEarningRate()  {
         return (double)(getTotalReward()) / (lottos.getLottos().size() * LOTTO_PRICE);
     }
 
-    public static long getTotalReward() {
+    private static long getTotalReward() {
         return lottoResults.stream().mapToLong(result -> result.getReward()).sum();
     }
 }
